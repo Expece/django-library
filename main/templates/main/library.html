@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <div class="content_category">Books</div>
+    <div class="category_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis molestias expedita, vitae nisi cum quam dicta, officia ducimus labore sint consequatur ea doloremque ad porro, recusandae eligendi minima voluptates molestiae?</div>
+        <div class="library_wrap">
+            {% for book in books %}
+                <div class="card" style="width: 18rem;height: 20rem;">
+                    <div class="img_shadow"></div>
+                    {% if book.cover %}
+                        <img src="{{book.cover.url}}" class="card-img-top" alt="...">
+                    {% else %}
+                        <i id="default-cover" class="fa-solid fa-book"></i>
+                    {% endif %}
+                    <div class="card-body">
+                    <h5 class="card-title">{{book.title}}</h5>
+                    <p class="card-text">{{book.author}}</p>
+                    <a href="{% url 'reader' pk=book.pk %}" class="btn btn-primary">Read</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+{% endblock %}
+

@@ -1,0 +1,158 @@
+*{
+    font-family: 'Libre Bodoni', serif;
+}
+
+body {
+    background-color: #4192D9;
+}
+
+.aside {
+    float: left;
+    position:fixed;
+    width: 15%;
+    height: 100vh;
+    padding: 10px;
+    background-color: #00305A;    
+    border-right: 1.5vh solid #004B8D;
+}
+
+.aside .logo {
+    list-style: none;
+}
+
+.aside .logo .logo_img {
+    display: block; 
+    margin: 0 auto;
+    width: 15vh;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+.aside .logo_text {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 3vh;
+    color: white;
+}
+
+.aside .menu_link {
+    list-style: none;
+    text-decoration: none;
+    font-size: 2vh;
+    color: white;
+}
+
+aside ul {
+    padding: 0;
+}
+
+aside ul li {
+    transition: all .3s;
+    margin-top: 15px;
+    text-align: center;
+}
+
+aside ul li:hover, aside ul a:hover {
+    color: #4192D9;
+    text-decoration: none;
+    transform: scale(1.0) ;
+}
+
+.content_wrap {
+    padding: 0px 15%;
+}
+
+.content_category {
+    display: inline;
+    text-shadow: 5px 5px 5px #004B8D;
+    padding: 20px 20px;
+    font-size: 80px;
+    color: white;
+}
+
+.category_text {
+    padding: 10px 20px;
+    text-shadow: 5px 5px 5px #004B8D;
+    font-style: italic;
+    font-size: 20px;
+    color: white;
+}
+
+.library_wrap {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction:row;
+    margin: 20px 0px;
+    justify-content:space-between;
+}
+
+.card {
+    display: flex;
+    background-color: #4192D9;
+    border: 10px solid rgba(0,0,0,.25);
+    flex-direction:row;
+    margin: 20px;
+}
+
+#default-cover {
+    font-size: 250px;
+    margin: auto;
+    color: white;
+}
+
+.card .img_shadow {
+    position:absolute;
+    width: 18rem;
+    height: 20rem;
+    z-index: 1;
+    background-color: rgba(0,0,0,.25)
+}
+
+.card .card-title{
+    font-size: 25px;
+    font-weight: 700;
+    color: white;
+    text-shadow: 5px 5px 5px #004B8D;
+}
+
+.card .card-text{
+    font-style: italic;
+    color: white;
+    text-shadow: 5px 5px 5px #004B8D;
+}
+
+.card-img-top {
+    z-index: 0;
+}
+
+.card-body {
+    position: absolute;
+    z-index: 1;
+}
+
+.boor-reader .book-title {
+    display: inline;
+    text-shadow: 5px 5px 5px #004B8D;
+    padding: 20px 20px;
+    font-size: 80px;
+    color: white;
+}
+
+.boor-reader .author {
+    padding: 10px 20px;
+    font-size: 25px;
+    font-style: italic;
+    color: white;
+}
+
+.boor-reader .text {
+    padding: 0px 20px;
+    color: black;
+    font-size: 20px;
+}
+
+.boor-reader .creater {
+    padding: 0px 20px;
+    color: white;
+    font-size: 20px;
+}
