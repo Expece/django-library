@@ -5,13 +5,15 @@
 <div class="new-book-wrap">
     <form class="new-book-form" method="post">
         {% csrf_token %}
+        {% if error %}
+            <span class="new-book-error">{{error}}</span>
+        {% endif %}
         <div class="new-book-form-item">{{form.author}}</div>
         <div class="new-book-form-item">{{form.title}}</div>
         <div class="new-book-form-item">{{form.text}}</div>
         <div class="new-book-form-item">{{form.category}}</div>
         <div class="new-book-form-item"></div>{{form.cover}}</fo>
         <p></p>
-        <span>{{error}}</span>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>

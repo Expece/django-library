@@ -184,3 +184,15 @@ aside ul li:hover, aside ul a:hover {
 .new-book-wrap .new-book-form .new-book-form-item{
     margin-top: 16px;
 }
+
+.new-book-error {
+    display: inline-block;
+    background-color: #DE264C;
+    text-align: center;
+    padding: .7em;
+    width: 8em;
+    height: 3em;
+    border: .25rem solid #A20D1E;
+    border-radius: 0.25rem;
+    font-size: 2rem;
+}
