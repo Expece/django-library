@@ -58,20 +58,20 @@ aside ul li:hover, aside ul a:hover {
     transform: scale(1.0) ;
 }
 
-.content_wrap {
-    padding: 0px 15%;
+.page {
+    margin-left: 15%;
 }
 
 .content_category {
     display: inline;
     text-shadow: 5px 5px 5px #004B8D;
-    padding: 20px 20px;
+    margin: 20px;
     font-size: 80px;
     color: white;
 }
 
 .category_text {
-    padding: 10px 20px;
+    margin: 10px 20px;
     text-shadow: 5px 5px 5px #004B8D;
     font-style: italic;
     font-size: 20px;
@@ -82,30 +82,43 @@ aside ul li:hover, aside ul a:hover {
     display: flex;
     flex-wrap: wrap;
     flex-direction:row;
-    margin: 20px 0px;
-    justify-content:space-between;
+    margin: 20px 20px;
+    justify-content:space-around;
 }
 
 .card {
     display: flex;
     background-color: #4192D9;
-    border: 10px solid rgba(0,0,0,.25);
+    border: 10px solid rgba(0,0,0,.35);
     flex-direction:row;
     margin: 20px;
+}
+
+#new-book {
+    background-color: #4192D9;
+    color: white;
+    font-size: 25px;
+    padding-top: 2.6em;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#new-book i {
+    text-align: center;
+    font-size: 100px;
+}
+
+#new-book a {
+    text-decoration: none;
+    color: white;
 }
 
 #default-cover {
     font-size: 250px;
     margin: auto;
     color: white;
-}
-
-.card .img_shadow {
-    position:absolute;
-    width: 18rem;
-    height: 20rem;
-    z-index: 1;
-    background-color: rgba(0,0,0,.25)
 }
 
 .card .card-title{
@@ -155,4 +168,19 @@ aside ul li:hover, aside ul a:hover {
     padding: 0px 20px;
     color: white;
     font-size: 20px;
+}
+
+.new-book-wrap {
+    margin: 20px 20px;
+    color: white;
+    font-style: italic;
+    font-size: 20px;
+}
+
+.new-book-wrap .new-book-form {
+    width: 60%
+}
+
+.new-book-wrap .new-book-form .new-book-form-item{
+    margin-top: 16px;
 }

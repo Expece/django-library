@@ -4,9 +4,10 @@
     <div class="content_category">Books</div>
     <div class="category_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis molestias expedita, vitae nisi cum quam dicta, officia ducimus labore sint consequatur ea doloremque ad porro, recusandae eligendi minima voluptates molestiae?</div>
         <div class="library_wrap">
+            <div id="new-book" class="card" style="width: 18rem;height: 20rem;"><a href="{% url 'new_book' %}"><i class="fa-solid fa-plus"></i></a>
+            add new book</div>
             {% for book in books %}
                 <div class="card" style="width: 18rem;height: 20rem;">
-                    <div class="img_shadow"></div>
                     {% if book.cover %}
                         <img src="{{book.cover.url}}" class="card-img-top" alt="...">
                     {% else %}
