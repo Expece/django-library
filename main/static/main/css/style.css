@@ -137,6 +137,18 @@ aside ul li:hover, aside ul a:hover {
     text-shadow: 5px 5px 5px #004B8D;
 }
 
+.card .delete-book {
+    position: absolute;
+    top: 85%;
+    left: 83%;
+}
+
+.card .update-book {
+    position: absolute;
+    top: 70%;
+    left: 83%;
+}
+
 .card-img-top {
     z-index: 0;
 }
@@ -203,4 +215,27 @@ aside ul li:hover, aside ul a:hover {
 .book-search {
     margin-top: 20px;
     width: 30%;
+}
+
+.delete-form {
+    position: absolute;
+    top: 35%;
+    left: 45%;
+    width: 300px;
+    height: 200px;
+    background-color: white;
+    border: .5vh solid red;
+    border-radius: 2vh;
+    padding: 3em;
+    z-index: 10;
+}
+
+.delete-form .text {
+    text-align: center;
+}
+
+.delete-form .buttons {
+    display: flex;
+    justify-content:space-evenly;
+    margin-top: 2em;
 }
