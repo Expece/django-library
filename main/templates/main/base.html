@@ -13,14 +13,14 @@
     <script src="https://kit.fontawesome.com/d9babc7854.js" crossorigin="anonymous"></script>
     <!-- My css -->
     <link rel="stylesheet" type="text/css" href="{% static 'main/css/style.css' %}">
-    <title>Books</title>
+    <title>MyLibrary</title>
 </head>
 <body>
     <aside class="aside">
         <a href="{% url 'home' %}" class="logo"><img src="{% static 'main/image/logo.svg' %}" alt="#" class="logo_img"></a>
         <div class="logo_text">Navigation</div>
         <ul>
-            <a href="{% url 'library' %}" class="menu_link"><li><i class="fa-solid fa-book"></i> Books</li></a>
+            <a href="{% url 'library' %}" class="menu_link"><li><i class="fa-solid fa-book"></i> Library</li></a>
             <a href="{% url 'about' %}" class="menu_link"><li><i class="fa-solid fa-circle-question"></i> About</li></a>
         </ul>
     </aside>

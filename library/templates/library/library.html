@@ -1,8 +1,11 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
-    <div class="content_category">Books</div>
+    <div class="content_category">Library</div>
     <div class="category_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis molestias expedita, vitae nisi cum quam dicta, officia ducimus labore sint consequatur ea doloremque ad porro, recusandae eligendi minima voluptates molestiae?</div>
+    <form action="{% url 'search' %}" class="book-search" method="get">
+        <input class="form-control" name="q" type="text" placeholder="Search book by title or author...">
+    </form>
         <div class="library_wrap">
             <div id="new-book" class="card" style="width: 18rem;height: 20rem;"><a href="{% url 'new_book' %}"><i class="fa-solid fa-plus"></i></a>
             add new book</div>

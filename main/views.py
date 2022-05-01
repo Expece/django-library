@@ -1,5 +1,4 @@
-from django.shortcuts import render, redirect
-
+from django.shortcuts import render
 
 def home(request):
     return render(request, 'main/home.html', {})
@@ -7,4 +6,3 @@ def home(request):
 
 def about(request):
     return render(request, 'main/about.html', {})
-

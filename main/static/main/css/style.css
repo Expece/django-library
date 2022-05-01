@@ -62,16 +62,19 @@ aside ul li:hover, aside ul a:hover {
     margin-left: 15%;
 }
 
+.page .content_wrap {
+    padding-left: 20px;
+}
+
 .content_category {
     display: inline;
     text-shadow: 5px 5px 5px #004B8D;
-    margin: 20px;
     font-size: 80px;
     color: white;
 }
 
 .category_text {
-    margin: 10px 20px;
+    margin-top: 10px;
     text-shadow: 5px 5px 5px #004B8D;
     font-style: italic;
     font-size: 20px;
@@ -82,7 +85,7 @@ aside ul li:hover, aside ul a:hover {
     display: flex;
     flex-wrap: wrap;
     flex-direction:row;
-    margin: 20px 20px;
+    margin-top: 20px;
     justify-content:space-around;
 }
 
@@ -177,7 +180,7 @@ aside ul li:hover, aside ul a:hover {
     font-size: 20px;
 }
 
-.new-book-wrap .new-book-form {
+.new-book-wrap .new-book-form{
     width: 60%
 }
 
@@ -195,4 +198,9 @@ aside ul li:hover, aside ul a:hover {
     border: .25rem solid #A20D1E;
     border-radius: 0.25rem;
     font-size: 2rem;
+}
+
+.book-search {
+    margin-top: 20px;
+    width: 30%;
 }

@@ -29,6 +29,14 @@ def reader(request, author, title):
     return render(request, 'library/reader.html', {'book': book})
 
 
+def search(request):
+    query = request.GET.get('q')
+    books = Book.objects.filter(title=query)
+    if not books:
+        books = Book.objects.filter(author=query)
+    return render(request, 'library/library.html', {'books': books})
+
+
 def _check_repetition(form: BookForm):
     books_from_db = Book.objects.all()
     new_book_author = form.cleaned_data['author']
