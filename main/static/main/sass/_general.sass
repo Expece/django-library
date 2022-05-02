@@ -1,0 +1,195 @@
+
+body 
+    background-color: $light_blue
+
+.aside 
+    float: left
+    position: fixed
+    width: 280px
+    height: 100vh
+    padding: 1em
+    background-color: $dark_blue
+    border-right: 1.5vh solid $blue
+    ul
+        padding: 0
+        li
+            transition: all .3s
+            margin-top: 15px
+            text-align: center
+            li:hover
+                color: $light_blue
+                text-decoration: none
+                transform: scale(1.0) 
+        a:hover
+                color: $light_blue
+                text-decoration: none
+                transform: scale(1.0)
+    .logo
+        list-style: none
+        .logo-img
+            display: block 
+            margin: 0 auto
+            width: 180px
+            margin-top: 1vh
+            margin-bottom: 1vh
+    .logo-text
+        margin: 0 auto
+        text-align: center
+        font-size: 30px
+        color: white
+    .menu-link
+        list-style: none
+        text-decoration: none
+        font-size: 20px
+        color: white
+    
+.page
+    margin-left: 280px
+    .content-wrap
+        padding: 0 20px
+        .book-search
+            margin-top: 20px
+            width: 50%
+        .content-category
+            display: inline
+            text-shadow: 5px 5px 5px $blue
+            font-size: 80px
+            color: white
+        .category-text 
+            margin-top: 10px
+            text-shadow: 5px 5px 5px $blue
+            font-style: italic
+            font-size: 20px
+            color: white
+        .book-search 
+            margin-top: 20px
+            width: 30%
+            box-shadow: 10px 5px 5px $blue
+        .library-wrap 
+            display: flex
+            flex-wrap: wrap
+            flex-direction: row
+            margin-top: 20px
+            justify-content: space-around
+            .card
+                width: 18rem
+                height: 20rem
+                display: flex
+                background-color: $light_blue
+                border: 10px solid rgba(0,0,0,.35)
+                flex-direction:row
+                margin: 20px
+                text-shadow: 10px 5px 5px $blue
+                box-shadow: 10px 5px 5px $blue
+                .block-shadow
+                    position: absolute
+                    width: 100%
+                    height: 100%
+                    background-color: rgba(0, 0, 0, .2)
+                &#new-book
+                    background-color: $blue
+                    color: white
+                    padding-top: 4em
+                    display: flex
+                    flex-direction: column
+                    text-align: center
+                    text-transform: uppercase
+                    transition: all .3s
+                    text-shadow: 10px 5px 5px $dark_blue
+                    i
+                        text-align: center
+                        font-size: 100px
+                        p
+                            font-size: 25px
+                            margin: 0 
+                    a
+                        text-decoration: none
+                        color: white
+                        &:hover
+                            color: $dark_blue
+                            text-decoration: none
+                            transform: scale(1.0)
+                .card-img-top
+                    z-index: 0
+                #default-cover
+                    font-size: 250px
+                    margin: auto
+                    color: white
+                .delete-book
+                    position: absolute
+                    top: 85%
+                    left: 83%
+                .update-book
+                    position: absolute
+                    top: 70%
+                    left: 83%
+                .card-body
+                    position: absolute
+                    z-index: 1
+                    .card-title
+                        font-size: 25px
+                        font-weight: 700
+                        color: white
+                        text-shadow: 5px 5px 5px $blue
+                    .card-text
+                        font-style: italic
+                        color: white
+                        text-shadow: 5px 5px 5px $blue
+    .boor-reader
+        .book-title
+            display: inline
+            text-shadow: 5px 5px 5px $blue
+            padding: 20px 20px
+            font-size: 80px
+            color: white
+        .author 
+            padding: 10px 20px
+            font-size: 25px
+            font-style: italic
+            color: white
+        .text
+            padding: 0px 20px
+            color: black
+            font-size: 20px
+        .creater 
+            padding: 0px 20px
+            color: white
+            font-size: 20px
+    .new-book-wrap
+        margin: 20px 20px
+        color: white
+        font-style: italic
+        font-size: 20px
+        .new-book-form
+            width: 60%
+            .new-book-form-item
+                margin-top: 16px
+            .new-book-error
+                display: inline-block
+                background-color: $light_red
+                text-align: center
+                padding: .7em
+                width: 8em
+                height: 3em
+                border: .25rem solid $dark_red
+                border-radius: 0.25rem
+                font-size: 2rem
+    .delete-form
+        position: fixed
+        top: 35%
+        left: 45%
+        width: 300px
+        height: 200px
+        background-color: white
+        border: .5vh solid red
+        border-radius: 2vh
+        padding: 3em
+        z-index: 10
+        .text 
+            text-align: center
+        .buttons 
+            display: flex
+            justify-content: space-evenly
+            margin-top: 2em
+
+        

@@ -1,36 +1,37 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
-    <div class="content_category">Library</div>
-    <div class="category_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis molestias expedita, vitae nisi cum quam dicta, officia ducimus labore sint consequatur ea doloremque ad porro, recusandae eligendi minima voluptates molestiae?</div>
+    <div class="content-category">Library</div>
+    <div class="category-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis molestias expedita, vitae nisi cum quam dicta, officia ducimus labore sint consequatur ea doloremque ad porro, recusandae eligendi minima voluptates molestiae?</div>
     <form action="{% url 'search' %}" class="book-search" method="get">
         <input class="form-control" name="q" type="text" placeholder="Search book by title or author...">
     </form>
-        <div class="library_wrap">
-            {% if user.is_authenticated %}
-                <div id="new-book" class="card" style="width: 18rem;height: 20rem;"><a href="{% url 'new_book' %}"><i class="fa-solid fa-plus"></i></a>
-                add new book</div>
-            {% endif %}
-            {% for book in books %}
-                <div class="card" style="width: 18rem;height: 20rem;">
-                    {% if book.cover %}
-                        <img src="{{book.cover.url}}" class="card-img-top" alt="...">
-                    {% else %}
-                        <i id="default-cover" class="fa-solid fa-book"></i>
-                    {% endif %}
-                    <div class="card-body">
+    <div class="library-wrap">
+        {% if user.is_authenticated %}
+            <div id="new-book" class="card"><a href="{% url 'new_book' %}"><i class="fa-solid fa-plus"><p>add new book</p></i></a>
+            </div>
+        {% endif %}
+        {% for book in books %}
+            <div class="card">
+                <div class="block-shadow"></div>
+                {% if book.cover %}
+                    <img src="{{book.cover.url}}" class="card-img-top" alt="...">
+                {% else %}
+                    <i id="default-cover" class="fa-solid fa-book"></i>
+                {% endif %}
+                <div class="card-body">
                     <h5 class="card-title">{{book.title}}</h5>
                     <p class="card-text">{{book.author}}</p>
                     <a href="{% url 'reader' author=book.author title=book.title %}" class="btn btn-primary">Read</a>
-                    </div>
-                    {% if user.is_authenticated %}
-                        <a href="{% url 'update' pk=book.pk %}" class="btn btn-primary update-book"><i class="fa-solid fa-pen"></i></a>
-                        <a href="{% url 'delete' pk=book.pk %}" class="btn btn-primary delete-book"><i class="fa-solid fa-trash-can"></i></a>
-                    {% endif %}
                 </div>
-            {% endfor %}
-        </div>
-        {% block delete_book %}
-        {% endblock %}
+                {% if user.is_authenticated %}
+                    <a href="{% url 'update' pk=book.pk %}" class="btn btn-primary update-book"><i class="fa-solid fa-pen"></i></a>
+                    <a href="{% url 'delete' pk=book.pk %}" class="btn btn-primary delete-book"><i class="fa-solid fa-trash-can"></i></a>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+    {% block delete_book %}
+    {% endblock %}
 {% endblock %}
 
