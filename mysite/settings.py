@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 from tracemalloc import Statistic
+from secret_key import _key
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@tvw_@tg9ajf7xd4lwf&4(y9^f*e&!4ev_%-j0=laj5=1atfaj'
+SECRET_KEY = _key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
