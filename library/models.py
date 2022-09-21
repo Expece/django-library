@@ -9,6 +9,17 @@ class Book(models.Model):
     cover = models.ImageField(upload_to='covers/', blank=True, verbose_name='Cover')
     published_date = models.DateTimeField(default=datetime.now(), verbose_name='Published date')
 
+    def get_absolute_url(self):
+        return reverse('book', kwargs = {'book_id': self.pk, 'author': self.author, 'title': self.title})
+    
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = 'Book'
+        verbose_name_plural = 'Books'
+        ordering = ['title']
+
 class Category(models.Model):
     title = models.CharField(max_length=150, db_index=True, verbose_name = 'Category name')
 

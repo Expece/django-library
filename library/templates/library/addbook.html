@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <h2 class="content-category">Add Book</h2>
+    <div class="container">
+        <form class="new-book-form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% if error %}
+                <span class="new-book-error">{{error}}</span>
+            {% endif %}
+            {{form.as_p}}
+            <p></p>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+{% endblock %}
