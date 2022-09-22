@@ -1,9 +1,15 @@
 {% extends 'main/base.html' %}
 
+{% block categorylist %}
+    {% include 'inc/_categorylist.html' %}
+{% endblock %}
+
 {% block content %}
     <h2 class="content-category">Library</h2>
     <div class="container"></div>
-    <p><a href="{% url 'addbook' %}" class="addbook">Add Book</a></p>
+    {% if user.is_authenticated %}
+        <p><a href="{% url 'addbook' %}" class="addbook">Add Book</a></p>
+    {% endif %}
     <div class="book-shelf">
         <div class="row row-cols-1 row-cols-md-3 g-4">
             {% for book in books %}

@@ -1,8 +1,13 @@
 /* night time */
-body {
+/* body {
     background-color: black;
-}
+} */
 
 .book-shelf{
     margin-top: 20px;
+}
+
+.list-group{
+    float: left;
+    margin: 50px;
 }
