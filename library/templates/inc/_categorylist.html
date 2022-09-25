@@ -1,5 +1,6 @@
 <ul class="list-group">
     <h3>Categories:</h3>
+    <a class="list-group-item" href="{% url 'library' %}">All</a>
     {% for category in categories %}
         <a class="list-group-item" href="{% url 'getBooksByCategory' category_title=category.title %}">{{category.title}}</a>
     {% endfor %}

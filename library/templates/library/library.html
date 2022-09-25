@@ -8,7 +8,7 @@
     <h2 class="content-category">Library</h2>
     <div class="container"></div>
     {% if user.is_authenticated %}
-        <p><a href="{% url 'addbook' %}" class="addbook">Add Book</a></p>
+        <p><a href="{% url 'addbook' %}" class="btn btn-dark"> <i class="fa-solid fa-plus"></i> Add Book</a></p>
     {% endif %}
     <div class="book-shelf">
         <div class="row row-cols-1 row-cols-md-3 g-4">
