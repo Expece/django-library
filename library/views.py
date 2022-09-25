@@ -17,7 +17,7 @@ def addbook(request):
     error = ''
     if request.method == 'POST':
         form = BookForm(request.POST, request.FILES)
-        if form.is_valid(): #  and not existBook(form):
+        if form.is_valid() and not _existBook(form):
             form.save()
             return redirect('library')
         else:
@@ -46,8 +46,27 @@ def getBooksByCategory(request, category_title):
     }
     return render(request, 'library/library.html', context)
 
-# def existBook(form: BookForm):
-#     existBook = Book.objects.filter(author=form.changed_data['author'], title=form.changed_data['title'])
-#     if existBook:
-#         return True
-#     return False
+def search(request):
+    query = request.GET.get('q')
+    query = query[0].upper() + query[1:]
+
+    books = Book.objects.filter(title=query)
+    categories = Category.objects.filter().all()
+
+    if not books:
+        books = Book.objects.filter(author=query)
+    context = {
+        'books': books,
+        'categories': categories
+    }
+    return render(request, 'library/library.html', context)
+
+def _existBook(form: BookForm):
+    books_from_db = Book.objects.all()
+    new_book_author = form.cleaned_data['author']
+    new_book_title = form.cleaned_data['title']
+    for book in books_from_db:
+        book_author, book_title = book.get_author_and_title()
+        if book_author == new_book_author and book_title == new_book_title:
+            return True
+    return False

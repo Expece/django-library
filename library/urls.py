@@ -9,4 +9,5 @@ urlpatterns = [
     path('addbook/', views.addbook, name='addbook'),
     path('<str:book_author>/<str:book_title>', views.readbook, name='readbook'),
     path('<str:category_title>', views.getBooksByCategory, name='getBooksByCategory'),
+    path('search/', views.search, name='search'),
 ]

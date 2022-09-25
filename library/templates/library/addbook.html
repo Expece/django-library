@@ -2,15 +2,20 @@
 
 {% block content %}
     <h2 class="content-category">Add Book</h2>
-    <div class="container">
+    <div class="container" style="padding-right: 600px;">
         <form class="new-book-form" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {% if error %}
-                <span class="new-book-error">{{error}}</span>
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
             {% endif %}
-            {{form.as_p}}
+            {% for field in form %}
+                <label class="form-label" for="{{ field.id_for_label }}">{{field.label}}: </label><p>{{ field }}</p>
+                <div class="form-error">{{ field.errors }}</div>
+            {% endfor %}
             <p></p>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-dark">Submit</button>
         </form>
     </div>
 {% endblock %}

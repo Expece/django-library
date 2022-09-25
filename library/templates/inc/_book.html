@@ -1,6 +1,10 @@
+{% load static %}
 <div class="card" style="width: 18rem; margin-left: 21px; margin-right: 21px;">
-  <!-- min: 260X260 -->
-    <img src="{{book.cover.url}}" class="card-img-top" alt="..." style="max-width: 250px; max-height: 250px; margin: 0 auto; margin-top: 17.5px;">
+  {% if book.cover %}
+    <img src="{{ book.cover.url }}" class="card-img-top" alt="" style="max-width: 250px; max-height: 250px; margin: 0 auto; margin-top: 17.5px;">
+  {% else %}
+    <img src="{% static 'main/images/logo.png' %}" class="card-img-top" alt="" style="max-width: 250px; max-height: 250px; margin: 0 auto; margin-top: 17.5px;">
+  {% endif %}
     <div class="card-body">
       <h5 class="card-title">{{book.title}}</h5>
       <p class="card-text">{{book.author}}</p>
