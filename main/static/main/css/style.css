@@ -1,7 +1,7 @@
-html, body {
+body {
     height: 100vh;
-    /* background: -webkit-linear-gradient(90deg,#269ef1,#7036be);
-    background: linear-gradient(90deg,#269ef1,#7036be); */
+    /* night time */
+    background-color:rgba(0, 0, 0, 0.7);
 }
 
 a, .nav-link{
@@ -35,4 +35,13 @@ a, .nav-link{
 .list-group{
     float: left;
     margin: 50px;
+}
+
+.card .card-img-top {
+    min-width: 249px;
+    min-height: 249px;
+    max-width: 250px;
+    max-height: 250px;
+    margin: 0 auto;
+    margin-top: 17.5px;
 }

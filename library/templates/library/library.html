@@ -1,20 +1,22 @@
 {% extends 'main/base.html' %}
+{% load library_tags %}
 
 {% block categorylist %}
-    {% include 'inc/_categorylist.html' %}
+    {% showCategories %}
 {% endblock %}
 
 {% block content %}
-    <h2 class="content-category">Library</h2>
-    <div class="container"></div>
-    {% if user.is_authenticated %}
-        <p><a href="{% url 'addbook' %}" class="btn btn-dark"> <i class="fa-solid fa-plus"></i> Add Book</a></p>
-    {% endif %}
-    <div class="book-shelf">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            {% for book in books %}
-            {% include 'inc/_book.html' %}
-            {% endfor %}
+    <div class="container">
+        <h2 class="content-category">Library</h2>
+        {% if user.is_authenticated %}
+            <p><a href="{% url 'addbook' %}" class="btn btn-dark"> <i class="fa-solid fa-plus"></i> Add Book</a></p>
+        {% endif %}
+        <div class="book-shelf">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                {% for book in books %}
+                {% include 'inc/_book.html' %}
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}

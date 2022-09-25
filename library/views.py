@@ -1,4 +1,3 @@
-from unicodedata import category
 from django.shortcuts import render, redirect, get_object_or_404
 
 from library.forms import BookForm
@@ -6,10 +5,8 @@ from .models import Book, Category
 
 def library(request):
     books = Book.objects.filter().order_by('-published_date')
-    categories = Category.objects.filter().all()
     context = {
         'books': books,
-        'categories': categories
     }
     return render(request, 'library/library.html', context)
 
@@ -39,25 +36,20 @@ def readbook(request, book_author, book_title):
 def getBooksByCategory(request, category_title):
     category = Category.objects.get(title=category_title)
     books = Book.objects.filter(category=category.pk).all()
-    categories = Category.objects.filter().all()
     context = {
         'books': books,
-        'categories': categories
     }
     return render(request, 'library/library.html', context)
 
 def search(request):
     query = request.GET.get('q')
     query = query[0].upper() + query[1:]
-
     books = Book.objects.filter(title=query)
-    categories = Category.objects.filter().all()
 
     if not books:
         books = Book.objects.filter(author=query)
     context = {
         'books': books,
-        'categories': categories
     }
     return render(request, 'library/library.html', context)
 
