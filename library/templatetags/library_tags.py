@@ -6,6 +6,6 @@ register = template.Library()
 
 
 @register.inclusion_tag('inc/_categorieslist.html')
-def showCategories() -> list[Category]:
+def showCategories(selected_category_pk=None) -> list[Category]:
     categories = Category.objects.all()
-    return {'categories': categories}
+    return {'categories': categories, 'selected_category_pk': selected_category_pk}

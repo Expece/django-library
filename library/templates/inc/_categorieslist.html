@@ -1,7 +1,15 @@
 <ul class="list-group">
     <h3>Categories:</h3>
-    <a class="list-group-item" href="{% url 'library' %}">All</a>
+    {% if not selected_category_pk %}
+        <a class="list-group-item selected" href="{% url 'library' %}">All</a>
+    {% else %}
+        <a class="list-group-item" href="{% url 'library' %}">All</a>
+    {% endif %}
     {% for category in categories %}
-        <a class="list-group-item" href="{% url 'getBooksByCategory' category_title=category.title %}">{{category.title}}</a>
+        {% if category.pk == selected_category_pk %}
+            <a class="list-group-item selected" href="{% url 'getBooksByCategory' category_title=category.title %}">{{category.title}}</a>
+        {% else %}
+            <a class="list-group-item" href="{% url 'getBooksByCategory' category_title=category.title %}">{{category.title}}</a>
+        {% endif %}
     {% endfor %}
 </ul> 

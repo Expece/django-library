@@ -10,10 +10,12 @@ class Book(models.Model):
     title = models.CharField(max_length=50, null=False, verbose_name='Title')
     category = models.ForeignKey('Category', on_delete=models.PROTECT, verbose_name='Category')
     cover = models.ImageField(upload_to='covers/%Y/%m/%d',blank=True, null=True, verbose_name='Cover')
+
     published_date = models.DateTimeField(default=datetime.now(), verbose_name='Published date')
+    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='URL')
 
     def get_absolute_url(self):
-        return reverse('readbook', kwargs = {'book_author': self.author, 'book_title': self.title})
+        return reverse('bookpage', kwargs = {'book_slug': self.slug})
 
     def __str__(self):
         return self.title
@@ -29,6 +31,7 @@ class Book(models.Model):
 
 class Category(models.Model):
     title = models.CharField(max_length=150, db_index=True, verbose_name = 'Category name')
+    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='URL')
 
     def get_absolute_url(self):
         return reverse('category', kwargs = {'category_title': self.title})

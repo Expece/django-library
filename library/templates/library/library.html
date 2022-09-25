@@ -2,7 +2,11 @@
 {% load library_tags %}
 
 {% block categorylist %}
-    {% showCategories %}
+    {% if selected_category_pk %}
+        {% showCategories selected_category_pk=selected_category_pk %}
+    {% else %}
+        {% showCategories %}
+    {% endif %}
 {% endblock %}
 
 {% block content %}

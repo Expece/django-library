@@ -45,3 +45,30 @@ a, .nav-link{
     margin: 0 auto;
     margin-top: 17.5px;
 }
+
+.book-page {
+    display: flex;
+}
+
+.book-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+}
+
+.line-limit-length{
+    margin: 0;
+    max-width: 633px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.selected{
+    color: white;
+    background-color:#212529;
+}
+
+.selected:hover{
+    color: rgba(179, 174, 174, 0.99)
+}

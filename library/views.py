@@ -26,18 +26,19 @@ def addbook(request):
     }
     return render(request, 'library/addbook.html', context)
 
-def readbook(request, book_author, book_title):
-    book = get_object_or_404(Book, author=book_author, title=book_title)  
+def bookpage(request, book_slug):
+    book = get_object_or_404(Book, slug=book_slug)  
     context = {
         'book': book,
     }
-    return render(request, 'library/readbook.html', context)
+    return render(request, 'library/bookpage.html', context)
 
 def getBooksByCategory(request, category_title):
     category = Category.objects.get(title=category_title)
     books = Book.objects.filter(category=category.pk).all()
     context = {
         'books': books,
+        'selected_category_pk': category.pk
     }
     return render(request, 'library/library.html', context)
 
