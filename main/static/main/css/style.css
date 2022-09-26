@@ -1,7 +1,7 @@
 body {
     height: 100vh;
     /* night time */
-    background-color:rgba(0, 0, 0, 0.7);
+    /* background-color:rgba(0, 0, 0, 0.7); */
 }
 
 a, .nav-link{

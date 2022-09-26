@@ -1,7 +1,17 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.views.generic import ListView
 
-from library.forms import BookForm
+from .forms import BookForm
 from .models import Book, Category
+
+class Library(ListView):
+    model = Book
+    template_name = 'library/library.html'
+    context_object_name = 'books'
+
+    def get_queryset(self):
+        return Book.objects.all().order_by('-published_date')
+
 
 def library(request):
     books = Book.objects.filter().order_by('-published_date')
@@ -34,7 +44,7 @@ def bookpage(request, book_slug):
     return render(request, 'library/bookpage.html', context)
 
 def getBooksByCategory(request, category_title):
-    category = Category.objects.get(title=category_title)
+    category = get_object_or_404(Category, title=category_title)
     books = Book.objects.filter(category=category.pk).all()
     context = {
         'books': books,
