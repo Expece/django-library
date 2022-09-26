@@ -1,8 +1,8 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import ListView
-
+from django.shortcuts import render, redirect
+from django.views.generic import ListView, DetailView, CreateView
+from django.urls import reverse_lazy
 from .forms import BookForm
-from .models import Book, Category
+from .models import Book
 
 class Library(ListView):
     model = Book
@@ -12,13 +12,10 @@ class Library(ListView):
     def get_queryset(self):
         return Book.objects.all().order_by('-published_date')
 
-
-def library(request):
-    books = Book.objects.filter().order_by('-published_date')
-    context = {
-        'books': books,
-    }
-    return render(request, 'library/library.html', context)
+class AddBook(CreateView):
+    form_class = BookForm
+    template_name = 'library/addbook.html'
+    success_url = reverse_lazy('library')
 
 def addbook(request):
     error = ''
@@ -36,33 +33,41 @@ def addbook(request):
     }
     return render(request, 'library/addbook.html', context)
 
-def bookpage(request, book_slug):
-    book = get_object_or_404(Book, slug=book_slug)  
-    context = {
-        'book': book,
-    }
-    return render(request, 'library/bookpage.html', context)
+class BookPage(DetailView):
+    model = Book
+    template_name = 'library/bookpage.html'
+    context_object_name = 'book'
+    slug_url_kwarg = 'book_slug'
 
-def getBooksByCategory(request, category_title):
-    category = get_object_or_404(Category, title=category_title)
-    books = Book.objects.filter(category=category.pk).all()
-    context = {
-        'books': books,
-        'selected_category_pk': category.pk
-    }
-    return render(request, 'library/library.html', context)
+class BooksByCategory(ListView):
+    model = Book
+    template_name = 'library/library.html'
+    context_object_name = 'books'
 
-def search(request):
-    query = request.GET.get('q')
-    query = query[0].upper() + query[1:]
-    books = Book.objects.filter(title=query)
+    def get_queryset(self):
+        return Book.objects.filter(category__slug=self.kwargs['category_slug']).all()
 
-    if not books:
-        books = Book.objects.filter(author=query)
-    context = {
-        'books': books,
-    }
-    return render(request, 'library/library.html', context)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['selected_category'] = self.kwargs['category_slug']
+        return context
+
+class Search(ListView):
+    model = Book
+    template_name = 'library/library.html'
+    context_object_name = 'books'
+
+    def validate_query(self):
+        query =  self.request.GET.get('q')
+        return query[0].upper() + query[1:]
+
+    def get_queryset(self):
+        query = self.validate_query()
+        books = Book.objects.filter(title=query)
+        if not books:
+            books = Book.objects.filter(author=query)
+        return books
+
 
 def _existBook(form: BookForm):
     books_from_db = Book.objects.all()

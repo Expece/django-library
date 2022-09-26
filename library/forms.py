@@ -1,5 +1,3 @@
-from calendar import c
-from tkinter import Widget
 from django import forms
 from .models import Book
 from django.core.exceptions import ValidationError
@@ -24,14 +22,3 @@ class BookForm(forms.ModelForm):
                 'placeholder': 'I remember a wonderful moment…'
             })
         }
-    def clean_author(self):
-        author = self.cleaned_data['author']
-        if len(author) > 50:
-            raise ValidationError('The length exceeds 50 characters')
-        return author
-
-    def clean_title(self):
-        title = self.cleaned_data['title']
-        if len(title) > 50:
-            raise ValidationError('The length exceeds 50 characters')
-        return title

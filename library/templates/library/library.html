@@ -2,10 +2,10 @@
 {% load library_tags %}
 
 {% block categorylist %}
-    {% if selected_category_pk %}
-        {% showCategories selected_category_pk=selected_category_pk %}
+    {% if selected_category %}
+        {% showCategories selected_category %}
     {% else %}
-        {% showCategories %}
+        {% showCategories %} 
     {% endif %}
 {% endblock %}
 

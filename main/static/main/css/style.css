@@ -46,6 +46,13 @@ a, .nav-link{
     margin-top: 17.5px;
 }
 
+.card .card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
 .book-page {
     display: flex;
 }

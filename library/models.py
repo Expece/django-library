@@ -1,8 +1,7 @@
-from cProfile import label
 from django.urls import reverse
 from django.db import models
 from datetime import datetime
-from django.utils.text import slugify
+from django.template.defaultfilters import slugify
 
 
 class Book(models.Model):
@@ -15,13 +14,18 @@ class Book(models.Model):
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='URL')
 
     def get_absolute_url(self):
-        return reverse('bookpage', kwargs = {'book_slug': self.slug})
+        return reverse('BookPage', kwargs = {'book_slug': self.slug})
 
     def __str__(self):
         return self.title
 
     def get_author_and_title(self):
         return self.author, self.title
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify((self.author+' '+self.title))
+        return super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = 'Book'
@@ -34,7 +38,7 @@ class Category(models.Model):
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='URL')
 
     def get_absolute_url(self):
-        return reverse('category', kwargs = {'category_title': self.title})
+        return reverse('BooksByCategory', kwargs = {'category_slug': self.slug})
 
     def __str__(self):
         return self.title
