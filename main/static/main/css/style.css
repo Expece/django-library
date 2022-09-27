@@ -1,18 +1,30 @@
-html,
-body {
+html, body {
   height: 100%;
 }
 
-body {
-    height: 100%;
-    /* night time */
-    /* background-color:rgba(0, 0, 0, 0.7); */
+body{
+    padding-top: 4.5rem;
 }
 
-a, .nav-link{
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.content{
+    flex: 1 0 auto;
+}
+
+.footer {
+    flex: 0 0 auto;
+    height: 200px;
+    background-color: #212529;
+}
+
+.nav-link{
     color: #212529;
 }
-
 
 .form-control:focus {
     color: #212529;
@@ -86,12 +98,21 @@ a, .nav-link{
 .selected:hover{
     color: rgba(179, 174, 174, 0.99)
 } 
-
 .pagination .page-item:hover {
     background: #ffe9e9;
     transform: translate(0, 0.25em);
 }
 
+.pagination .page-link:focus{
+    box-shadow: 0 0 0 .25rem rgba(33, 37, 41, 0.25)
+}
+
 .pagination .page-link{
     color: #212529;
+}
+
+.pagination .page-item.active .page-link{
+    color: white;
+    background-color: #212529;
+    border-color: #212529;
 }

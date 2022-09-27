@@ -1,8 +1,20 @@
 <!-- <span class="page-link">1</span> -->
-<nav class="" style="margin: 20px;">
+{% if page_obj.has_other_pages %}
+  <nav class="" style="margin: 20px;">
     <ul class="pagination justify-content-center">
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      {% for p in paginator.page_range %}
+        {% if page_obj.number == p %}
+          <li class="page-item active">
+            <a class="page-link" href="?page={{ p }}">{{ p }}</a>
+          </li>
+          {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ p }}">{{ p }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
     </ul>
   </nav>
+{% else %}
+  <p style="height: 38px; margin: 20px;"></p>
+{% endif %}

@@ -5,9 +5,9 @@ from django.db.models import Q
 
 from .forms import BookForm
 from .models import Book
+from .utils import DataMixin
 
-class Library(ListView):
-    paginate_by = 8
+class Library(DataMixin, ListView):
     model = Book
     template_name = 'library/library.html'
     context_object_name = 'books'
@@ -42,7 +42,7 @@ class BookPage(DetailView):
     context_object_name = 'book'
     slug_url_kwarg = 'book_slug'
 
-class BooksByCategory(ListView):
+class BooksByCategory(DataMixin, ListView):
     model = Book
     template_name = 'library/library.html'
     context_object_name = 'books'

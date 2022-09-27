@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
+    <div class="library">
         <h2 class="content-category">Library</h2>
         {% if user.is_authenticated %}
             <p><a href="{% url 'addbook' %}" class="btn btn-dark"> <i class="fa-solid fa-plus"></i> Add Book</a></p>
