@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView
 from django.urls import reverse_lazy
+from django.db.models import Q
+
 from .forms import BookForm
 from .models import Book
 
 class Library(ListView):
+    paginate_by = 8
     model = Book
     template_name = 'library/library.html'
     context_object_name = 'books'
@@ -45,7 +48,7 @@ class BooksByCategory(ListView):
     context_object_name = 'books'
 
     def get_queryset(self):
-        return Book.objects.filter(category__slug=self.kwargs['category_slug']).all()
+        return Book.objects.filter(category__slug=self.kwargs['category_slug']).order_by('-published_date')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -57,17 +60,10 @@ class Search(ListView):
     template_name = 'library/library.html'
     context_object_name = 'books'
 
-    def validate_query(self):
-        query =  self.request.GET.get('q')
-        return query[0].upper() + query[1:]
-
     def get_queryset(self):
-        query = self.validate_query()
-        books = Book.objects.filter(title=query)
-        if not books:
-            books = Book.objects.filter(author=query)
+        query = self.request.GET.get('q')
+        books = Book.objects.filter(Q(title__icontains=query) | Q(author__icontains=query))
         return books
-
 
 def _existBook(form: BookForm):
     books_from_db = Book.objects.all()
