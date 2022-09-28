@@ -13,7 +13,7 @@
     <div class="library">
         <h2 class="content-category">Library</h2>
         {% if user.is_authenticated %}
-            <p><a href="{% url 'addbook' %}" class="btn btn-dark"> <i class="fa-solid fa-plus"></i> Add Book</a></p>
+            <p><a class="btn btn-light" href="{% url 'addbook' %}" style="border: 1px solid black"> <i class="fa-solid fa-plus"></i> Add Book</a></p>
         {% endif %}
         <div class="book-shelf">
             <div class="row row-cols-1 row-cols-md-3 g-4">

@@ -14,11 +14,11 @@ class BookForm(forms.ModelForm):
 
         widgets = {
             'author': forms.TextInput(attrs={
-                'class': 'form-control',
+                'class': 'form-control addbook',
                 'placeholder': 'Pushkin A.S.'
             }),
             'title': forms.TextInput(attrs={
-                'class': 'form-control',
+                'class': 'form-control addbook',
                 'placeholder': 'I remember a wonderful moment…'
             })
         }

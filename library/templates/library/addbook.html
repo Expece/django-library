@@ -1,8 +1,7 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
-    <h2 class="content-category">Add Book</h2>
-    <div class="container" style="padding-right: 600px;">
+    <h1 class="content-category">Add Book</h3>
         <form class="new-book-form" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {% if error %}
@@ -17,5 +16,4 @@
             <p></p>
             <button type="submit" class="btn btn-dark">Submit</button>
         </form>
-    </div>
 {% endblock %}

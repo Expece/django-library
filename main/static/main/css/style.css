@@ -1,3 +1,7 @@
+:root{
+    --black: #212529;
+}
+
 html, body {
   height: 100%;
 }
@@ -19,17 +23,21 @@ body{
 .footer {
     flex: 0 0 auto;
     height: 200px;
-    background-color: #212529;
+    background-color: --black;
 }
 
 .nav-link{
     color: #212529;
 }
 
+.form-control.addbook{
+    width: 500px;
+}
+
 .form-control:focus {
-    color: #212529;
+    color: --black;
     background-color: #fff;
-    border-color: #212529;
+    border-color: --black;
     outline: 0;
     box-shadow: 0 0 0 .25rem rgba(0, 0, 0, 0.25);
 }
@@ -92,7 +100,7 @@ body{
 
 .selected{
     color: white;
-    background-color:#212529;
+    background-color: #212529;
 }
 
 .selected:hover{
@@ -108,11 +116,11 @@ body{
 }
 
 .pagination .page-link{
-    color: #212529;
+    color: --black;
 }
 
 .pagination .page-item.active .page-link{
     color: white;
-    background-color: #212529;
-    border-color: #212529;
+    background-color: --black;
+    border-color: --black;
 }

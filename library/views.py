@@ -36,6 +36,16 @@ def addbook(request):
     }
     return render(request, 'library/addbook.html', context)
 
+def _existBook(form: BookForm):
+    books_from_db = Book.objects.all()
+    new_book_author = form.cleaned_data['author']
+    new_book_title = form.cleaned_data['title']
+    for book in books_from_db:
+        book_author, book_title = book.get_author_and_title()
+        if book_author == new_book_author and book_title == new_book_title:
+            return True
+    return False
+
 class BookPage(DetailView):
     model = Book
     template_name = 'library/bookpage.html'
@@ -64,13 +74,3 @@ class Search(ListView):
         query = self.request.GET.get('q')
         books = Book.objects.filter(Q(title__icontains=query) | Q(author__icontains=query))
         return books
-
-def _existBook(form: BookForm):
-    books_from_db = Book.objects.all()
-    new_book_author = form.cleaned_data['author']
-    new_book_title = form.cleaned_data['title']
-    for book in books_from_db:
-        book_author, book_title = book.get_author_and_title()
-        if book_author == new_book_author and book_title == new_book_title:
-            return True
-    return False

@@ -18,6 +18,17 @@
           <input class="form-control me-2" name="q" type="text" placeholder="Search book">
           <button class="btn btn-dark" type="submit">Search</button>
         </form>
+        {% if user.is_authenticated %}
+        <div class="ms-5 me-2">
+          <a class="btn btn-light" href="{% url 'signout' %}" style="border: 1px solid #212529;">{{user.username}}</a>
+          <a class="btn btn-light" href="{% url 'signout' %}" style="border: 1px solid #212529;">Sign out</a>
+        </div>
+        {% else %}
+        <div class="ms-5 me-2">
+          <a class="btn btn-light" href="{% url 'signin' %}" style="border: 1px solid #212529;">Sign in</a>
+          <a class="btn btn-light" href="{% url 'signup' %}" style="border: 1px solid #212529;">Sign up</a>
+        </div>
+        {% endif %}
       </div>
     </div>
   </nav>
