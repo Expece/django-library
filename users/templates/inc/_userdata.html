@@ -1,0 +1,71 @@
+<div class="row">
+    <div class="col-sm-3">
+      <h6 class="mb-0">First name</h6>
+    </div>
+    {% if user.first_name %}
+        <div class="col-sm-9 text-secondary">{{user.first_name}}</div>
+    {% else %}
+        <div class="col-sm-9 text-secondary">...</div>
+    {% endif %}
+  </div>
+<hr>
+<div class="row">
+    <div class="col-sm-3">
+      <h6 class="mb-0">Last name</h6>
+    </div>
+    {% if user.last_name %}
+        <div class="col-sm-9 text-secondary">{{user.last_name}}</div>
+    {% else %}
+        <div class="col-sm-9 text-secondary">...</div>
+    {% endif %}
+  </div>
+<hr>
+<div class="row">
+    <div class="col-sm-3">
+      <h6 class="mb-0">Date joined</h6>
+    </div>
+    {% if user.profile.birth_date %}
+        <div class="col-sm-9 text-secondary">{{user.profile.birth_date}}</div>
+    {% else %}
+        <div class="col-sm-9 text-secondary">...</div>
+    {% endif %}
+  </div>
+<hr>
+<div class="row">
+    <div class="col-sm-3">
+      <h6 class="mb-0">location</h6>
+    </div>
+    {% if user.profile.location %}
+        <div class="col-sm-9 text-secondary">{{user.profile.location}}</div>
+    {% else %}
+        <div class="col-sm-9 text-secondary">...</div>
+    {% endif %}
+  </div>
+<hr>
+<div class="row">
+    <div class="col-sm-3">
+      <h6 class="mb-0">Email</h6>
+    </div>
+    {% if user.email %}
+        <div class="col-sm-9 text-secondary">{{user.email}}</div>
+    {% else %}
+        <div class="col-sm-9 text-secondary">...</div>
+    {% endif %}
+  </div>
+<hr>
+<div class="row">
+    <div class="col-sm-3">
+      <h6 class="mb-0">Date joined</h6>
+    </div>
+        <div class="col-sm-9 text-secondary">{{user.date_joined}}</div>
+  </div>
+<hr>
+{% if user.is_staff %}
+<div class="row">
+    <div class="col-sm-3">
+      <h6 class="mb-0">Is stuff</h6>
+    </div>
+        <div class="col-sm-9 text-secondary">+</div>
+  </div>
+<hr>
+{% endif %}

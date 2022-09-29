@@ -1,10 +1,11 @@
-from django.urls import path, include
-from .views import PersonalAccount, SignUpUser, SignIpUser, signOutUser
+from django.urls import path
+from .views import SignUpUser, SignInUser, signOutUser, UserProfile, UpdateUser
 
 
 urlpatterns = [
-    path('', PersonalAccount.as_view(), name='personal_account'),
     path('signup/', SignUpUser.as_view(), name='signup'),
-    path('signin/', SignIpUser.as_view(), name='signin'),
+    path('signin/', SignInUser.as_view(), name='signin'),
     path('signout/', signOutUser, name='signout'),
+    path('<int:user_pk>', UpdateUser.as_view(), name='updateuser'),
+    path('<str:user_slug>/', UserProfile.as_view(), name='profile'),
 ]

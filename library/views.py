@@ -11,7 +11,6 @@ class Library(DataMixin, ListView):
     model = Book
     template_name = 'library/library.html'
     context_object_name = 'books'
-
     def get_queryset(self):
         return Book.objects.all().order_by('-published_date')
 

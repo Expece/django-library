@@ -8,5 +8,5 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('about/', views.about, name='about'),
     path('library/', include('library.urls')),
-    path('users/', include('users.urls')),
+    path('accounts/', include('users.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
