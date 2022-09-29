@@ -72,5 +72,5 @@ class Search(ListView):
 
     def get_queryset(self):
         query = self.request.GET.get('q')
-        books = Book.objects.filter(Q(title__icontains=query) | Q(author__icontains=query))
+        books = Book.objects.filter(Q(title__icontains=query) | Q(author__icontains=query)).order_by('-published_date')
         return books

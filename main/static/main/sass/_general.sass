@@ -1,6 +1,8 @@
 html, body
     height: 100%
 
+a
+    text-decoration: none
 
 body
     padding-top: 4.5rem
@@ -27,9 +29,13 @@ header
     height: 100%
     .content
         flex: 1 0 auto
-        .new-book-form
-            .form-control.addbook
-                 width: 500px
+        .form-div
+            width: 500px
+            margin: 0 auto
+            padding: 50px
+
+            background-color: rgba(248,249,250)
+
         .list-group
             float: left
             margin: 50px
@@ -92,3 +98,13 @@ header
         flex: 0 0 auto
         height: 200px
         background-color: $black
+        .footer-wrapper
+            position: relative
+            .tg-icon
+                font-style: italic
+                position: absolute
+                right: 30px
+                top: 20px
+                color: white
+                .tg-icon-link
+                    color: white

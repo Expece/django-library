@@ -1,14 +1,16 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
-    <h1 class="content-category">Sign up new user</h1>
-    <div class="from-error">{{ from.non_field_errors }}</div>
-    <form class="new-user-form" method="post">
-        {% csrf_token %}
-        {% for f in form %}
-        <p><label for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}</p>
-        <div class="form-error">{{ f.errors }}</div>
-        {% endfor %}
-        <button type="submit" class="btn btn-dark">Sign up</button>
-    </form>
+    <div class="form-div">
+        <h1 class="content-category">Sign up</h1>
+        <div class="from-error">{{ from.non_field_errors }}</div>
+        <form class="new-user-form" method="post">
+            {% csrf_token %}
+            {% for f in form %}
+            <p><label for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}</p>
+            <div class="form-error">{{ f.errors }}</div>
+            {% endfor %}
+            <button type="submit" class="btn btn-dark">Sign up</button>
+        </form>
+    </div>
 {% endblock %}

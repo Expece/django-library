@@ -1,3 +1,4 @@
+from unicodedata import category
 from django import forms
 from .models import Book
 from django.core.exceptions import ValidationError
@@ -20,5 +21,13 @@ class BookForm(forms.ModelForm):
             'title': forms.TextInput(attrs={
                 'class': 'form-control addbook',
                 'placeholder': 'I remember a wonderful moment…'
+            }),
+            'category': forms.Select(attrs={
+                'class': 'form-select',
+
+            }),
+            'cover': forms.FileInput(attrs={
+                'class': 'form-control form-control-lg',
+                'style': 'height: 38px; font-size: 15px;'
             })
         }
